@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "Secular One";
+  src: url("SecularOne-Regular.woff") format("woff"),
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("SecularOne-Regular.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+body {
+  background-color: #d9d2b6;
+  font-family: "Secular One", sans-serif;
+}
+
+.titulo {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-gen {
+  border-radius: 30px;
+  background: #b9c6ae;
+  box-shadow: 16px 16px 19px #a5b09b, -16px -16px 19px #cddcc1;
+  width: 333px;
+  height: 333px;
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+
+.btn-gen:hover {
+  transform: translate(-50%, -50%);
+  width: 340px;
+  height: 340px;
+
+}
+
+.by {
+    font-size: 1rem;
+    color: #444554;
+    text-align: center;
+    margin: 1rem 0;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
