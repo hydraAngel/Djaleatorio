@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "album-art": "^4.0.0",
     "body-parser": "^1.20.3",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
