@@ -19,9 +19,11 @@
     </button>
     <div class="container">
       <div>
-        <img src="/assets/<%= num %>.jpg" onclick="generateVerso(); trocarImagem()" />
+        <img id="imagem" src="/assets/<%= num %>.jpg" onclick="generateVerso();" />
       </div>
       <h1 class="titulo">DJAVANEAR</h1>
+      <h2 class="verso hidden" id="versogerado"></h2>
+      <h3 class="musica hidden" id="qualmusica"></h3>
       <h3 class="by">by paiva</h3>
     </div>
     <script>
@@ -32,8 +34,20 @@
           .then((data) => {
             // update the image src with the new verse
             console.log(data['verso'])
+            console.log(data['num_album'])
+            const imagem = document.getElementById("imagem");
+            imagem.src = "/assets/"+data['num_album']+".jpg"
+            const h2verso = document.getElementById("versogerado");
+            h2verso.innerHTML = '"'+ data['verso'] + '"';
+            h2verso.classList.remove("hidden")
+            const h3musica = document.getElementById("qualmusica");
+            h3musica.innerHTML = "Djavan em: <b>" + data['musica'].replace('.text', '') + "</b>";
+            h3musica.classList.remove("hidden")
+            
           });
       }
+
+      
     </script>
   </body>
 </html>

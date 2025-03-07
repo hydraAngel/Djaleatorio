@@ -4,6 +4,7 @@
   --color-bg: #d9d2b6;
   --color-shadow: #6a6d67;
   --color-shadow-sec: #d6dbd2;
+  --color-verse: #9E768F;
 }
 
 .darkmode {
@@ -12,6 +13,7 @@
   --color-bg: #333;
   --color-shadow: #abb1a6;
   --color-shadow-sec: #d6dbd2;
+  --color-verse: #F7D6E0;
 }
 
 @font-face {
@@ -27,7 +29,7 @@ body {
 }
 
 .titulo {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: var(--color-text-title);
   text-align: center;
   margin: 1rem 0;
@@ -106,6 +108,37 @@ img:hover {
   display: block;
 }
 
+.hidden {
+  display: none;
+}
+
+.verso {
+  font-size: 2rem;
+  color: var(--color-verse);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+}
+
+.musica {
+  font-size: 1.4rem;
+  color: var(--color-verse);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.musica b {
+  color: var(--color-text-title);
+}
+}
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   img {
     border-radius: 30px;
@@ -187,3 +220,4 @@ img:hover {
     display: block;
   }
 }
+

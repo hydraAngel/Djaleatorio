@@ -44,7 +44,7 @@ app.get("/generate", (req, res) => {
 
     log("Random file is", file);
     var letra = fs.readFileSync(path.join(process.cwd(), "letras", file), "utf-8");
-    
+    var album = letra.split("\n")[(letra.split("\n")).length - 2].replace('Album: ', '');
     letra = letra.replace(/^Album:.*$/gm, '');
     var versos = letra.split("\n");
     var versos_sem_versos_vazios = [];
@@ -54,9 +54,11 @@ app.get("/generate", (req, res) => {
         }
     }
     var verso_aleatorio = versos_sem_versos_vazios[Math.floor(Math.random() * versos_sem_versos_vazios.length)];
-
-
-    res.json({ status: "ok", musica: file.replace(".txt", ""), letra: fs.readFileSync(path.join(process.cwd(), "letras", file), "utf-8"), verso: verso_aleatorio});
+    var jsondata = JSON.parse(fs.readFileSync('test1.json', 'utf8'));
+    var albums = jsondata['letras'].reverse();
+    var resa = albums.find(item => item.name === album);
+    var num_album = resa ? resa.num : null;
+    res.json({ status: "ok", musica: file.replace(".txt", ""), letra: fs.readFileSync(path.join(process.cwd(), "letras", file), "utf-8"), verso: verso_aleatorio, num_album: num_album });
 });
   
   
