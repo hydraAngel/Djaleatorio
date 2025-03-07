@@ -19,10 +19,21 @@
     </button>
     <div class="container">
       <div>
-        <img src="/assets/<%= num %>.jpg">
+        <img src="/assets/<%= num %>.jpg" onclick="generateVerso(); trocarImagem()" />
       </div>
       <h1 class="titulo">DJAVANEAR</h1>
       <h3 class="by">by paiva</h3>
     </div>
+    <script>
+      function generateVerso() {
+        // call to the server to get a new verse (/generate)
+        fetch('/generate')
+          .then((response) => response.json())
+          .then((data) => {
+            // update the image src with the new verse
+            console.log(data['verso'])
+          });
+      }
+    </script>
   </body>
 </html>

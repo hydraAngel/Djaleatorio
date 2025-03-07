@@ -6,7 +6,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const { log } = console;
 const https = require('https');
-
+const fs = require("fs");
 const app = express();
 const porta = 3000;
 
@@ -35,19 +35,31 @@ app.get("/", (req, res) => {
 });
 
 app.get("/generate", (req, res) => {
-  https.get("https://api.lyrics.ovh/v1/Djavan/Mea-Culpa", (resp) => {
-    let data = '';
-    resp.on('data', (chunk) => {
-      data += chunk;
-    });
-    resp.on('end', () => {
-      res.json(JSON.parse(data));
-    });
-  }
-  ).on("error", (err) => {
-    console.log("Error: " + err.message);
-  });
-  // res.json({ num });
+  fs.readdir(path.join(process.cwd(), "letras"), (err, files) => {
+    let max = files.length - 1;
+    let min = 0;
+
+    let index = Math.round(Math.random() * (max - min) + min);
+    let file = files[index];
+
+    log("Random file is", file);
+    var letra = fs.readFileSync(path.join(process.cwd(), "letras", file), "utf-8");
+    
+    letra = letra.replace(/^Album:.*$/gm, '');
+    var versos = letra.split("\n");
+    var versos_sem_versos_vazios = [];
+    for (var i = 0; i < versos.length; i++) {
+        if (versos[i].trim() != "") {
+            versos_sem_versos_vazios.push(versos[i]);
+        }
+    }
+    var verso_aleatorio = versos_sem_versos_vazios[Math.floor(Math.random() * versos_sem_versos_vazios.length)];
+
+
+    res.json({ status: "ok", musica: file.replace(".txt", ""), letra: fs.readFileSync(path.join(process.cwd(), "letras", file), "utf-8"), verso: verso_aleatorio});
+});
+  
+  
 });
 
 app.listen(porta, '0.0.0.0', () => {
