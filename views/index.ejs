@@ -54,11 +54,26 @@
       <h3 class="by">by paiva</h3>
     </div>
     <script>
+      function detectMob() {
+        const toMatch = [
+          /Android/i,
+          /webOS/i,
+          /iPhone/i,
+          /iPad/i,
+          /iPod/i,
+          /BlackBerry/i,
+          /Windows Phone/i,
+        ];
+
+        return toMatch.some((toMatchItem) => {
+          return navigator.userAgent.match(toMatchItem);
+        });
+      }
+
       const ja_sabe = JSON.parse(localStorage.getItem("ja-sabe"));
       if (ja_sabe == null) {
         localStorage.setItem("ja-sabe", JSON.stringify({ "ja clicou": false }));
       } else if (ja_sabe["ja clicou"] == false) {
-        
         document.querySelector(".overlay").style.display = "block";
       } else if (ja_sabe["ja clicou"] == true) {
         document.querySelector(".overlay").style.display = "none";
@@ -72,9 +87,7 @@
             JSON.stringify({ "ja clicou": true })
           );
           const foto = document.getElementById("imagem");
-          if (foto.classList.contains("aviso")) {
-            foto.classList.remove("aviso");
-          }
+          document.querySelector(".overlay").style.display = "none";
         }
       });
 
@@ -89,15 +102,26 @@
       });
 
       overlay.addEventListener("mouseover", () => {
-        imagem.style.width = 340 + "px";
-        imagem.style.height = 340 + "px";
-        avisotext.style.font_size = 2 + "rem";
+        if (!detectMob()) {
+          imagem.style.width = 340 + "px";
+          imagem.style.height = 340 + "px";
+          avisotext.style.font_size = 2 + "rem";
+        } else {
+          imagem.style.width = 600 + "px";
+          imagem.style.height = 600 + "px";
+        }
       });
 
       overlay.addEventListener("mouseout", () => {
-        imagem.style.width = 333 + "px";
-        imagem.style.height = 333 + "px";
-        avisotext.style.font_size = 1.5 + "rem";
+        if (!detectMob()) {
+          imagem.style.width = 333 + "px";
+          imagem.style.height = 333 + "px";
+          avisotext.style.font_size = 1.5 + "rem";
+        } else {
+          imagem.style.width = 607 + "px";
+          imagem.style.height = 607 + "px";
+        }
+        
       });
 
       function generateVerso() {

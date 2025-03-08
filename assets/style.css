@@ -4,7 +4,7 @@
   --color-bg: #d9d2b6;
   --color-shadow: #6a6d67;
   --color-shadow-sec: #d6dbd2;
-  --color-verse: #9E768F;
+  --color-verse: #9e768f;
   --color-overlay: rgba(217, 210, 182, 0.7);
 }
 
@@ -14,9 +14,8 @@
   --color-bg: #333;
   --color-shadow: #abb1a6;
   --color-shadow-sec: #d6dbd2;
-  --color-verse: #F7D6E0;
+  --color-verse: #f7d6e0;
   --color-overlay: rgba(51, 51, 51, 0.7);
-
 }
 
 @font-face {
@@ -72,8 +71,6 @@ img:hover {
   width: 340px;
   height: 340px;
 }
-
-
 
 .overlay {
   border-radius: 30px;
@@ -176,9 +173,6 @@ img:hover {
   color: var(--color-text-title);
 }
 
-
-
-
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   img {
     border-radius: 30px;
@@ -198,6 +192,38 @@ img:hover {
     transform: translate(-50%, -50%);
     width: 607px;
     height: 607px;
+  }
+
+  .overlay {
+    border-radius: 30px;
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: 0.2s;
+    background-color: var(--color-overlay);
+    z-index: 1000;
+    cursor: pointer;
+  }
+
+  .overlay:hover {
+    transform: translate(-50%, -50%);
+    width: 607px;
+    height: 607px;
+  }
+
+  .avisotext {
+    font-size: 3rem;
+    color: var(--color-text-title);
+    text-align: center;
+    margin: 1rem 0;
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .titulo {
@@ -259,5 +285,32 @@ img:hover {
   .darkmode #theme-switch svg:last-child {
     display: block;
   }
-}
 
+  .verso {
+    font-size: 4rem;
+    color: var(--color-verse);
+    text-align: center;
+    margin: 1rem 0;
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+  }
+
+  .musica {
+    font-size: 3.4rem;
+    color: var(--color-verse);
+    text-align: center;
+    margin: 1rem 0;
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+  }
+
+  .musica b {
+    color: var(--color-text-title);
+  }
+}

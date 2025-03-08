@@ -54,7 +54,7 @@ app.get("/generate", (req, res) => {
         }
     }
     var verso_aleatorio = versos_sem_versos_vazios[Math.floor(Math.random() * versos_sem_versos_vazios.length)];
-    var jsondata = JSON.parse(fs.readFileSync('/assets/test1.json', 'utf8'));
+    var jsondata = JSON.parse(fs.readFileSync('./assets/test1.json', 'utf8'));
     var albums = jsondata['letras'].reverse();
     var resa = albums.find(item => item.name === album);
     var num_album = resa ? resa.num : null;
