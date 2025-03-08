@@ -6,7 +6,7 @@
   --color-shadow-sec: #d6dbd2;
   --color-verse: #9e768f;
   --color-overlay: rgba(217, 210, 182, 0.7);
-  --color-link: #69353F;
+  --color-link: #69353f;
 }
 
 .darkmode {
@@ -17,7 +17,7 @@
   --color-shadow-sec: #d6dbd2;
   --color-verse: #f7d6e0;
   --color-overlay: rgba(51, 51, 51, 0.7);
-  --color-link: #FBF2C0;
+  --color-link: #fbf2c0;
 }
 
 @font-face {
@@ -110,7 +110,43 @@ img:hover {
   transform: translate(-50%, -50%);
 }
 
+.svg-aviso-game {
+  position: absolute;
+  top: 66%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  fill: var(--color-text-title);
+}
+
+.svg-aviso-game {
+  -webkit-animation: slide-top 0.5s ease infinite alternate both;
+  animation: slide-top 0.5s ease infinite alternate both;
+}
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  50% {
+    -webkit-transform: translateY(-40%) translateX(-50%);
+    transform: translateY(-40%) translateX(-50%);
+  }
+  100% {
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+  }
+}
+
+.avisotext.game {
+  top: 20%;
+}
+
 #theme-switch {
+  border: 1px solid var(--color-text-title);
   height: 50px;
   width: 50px;
   padding: 0;
@@ -131,6 +167,33 @@ img:hover {
 }
 
 #theme-switch svg {
+  fill: var(--color-bg);
+  height: 30px;
+  width: 30px;
+}
+
+#game-switch {
+  border: 1px solid var(--color-text-title);
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--color-text-title);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+#game-switch:hover {
+  transform: scale(1.05);
+}
+
+#game-switch svg {
   fill: var(--color-bg);
   height: 30px;
   width: 30px;
@@ -178,6 +241,180 @@ img:hover {
 .musica b {
   color: var(--color-text-title);
 }
+
+.regras {
+  font-size: 1.4rem;
+  color: var(--color-verse);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.jogar {
+  border: 1px solid var(--color-text-title);
+  background-color: var(--color-bg);
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+.jogar:hover {
+  background-color: var(--color-text-title);
+  color: var(--color-bg);
+}
+
+.vamos-jogar {
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sim-ou-nao-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sim,
+.nao {
+  border: 1px solid var(--color-text-title);
+  background-color: var(--color-bg);
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+.sim:hover {
+  background-color: #77dd77;
+  color: #333;
+}
+
+.nao:hover {
+  background-color: #ff6961;
+  color: #333;
+}
+
+.sumir-lentamente {
+  -webkit-animation: sumir-lentamente 0.6s ease-out forwards;
+  animation: sumir-lentamente 0.6s ease-out forwards;
+}
+
+@-webkit-keyframes sumir-lentamente {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.aparecer-lentamente {
+  -webkit-animation: aparecer-lentamente 0.6s ease-out forwards;
+  animation: aparecer-lentamente 0.6s ease-out forwards;
+}
+
+@-webkit-keyframes aparecer-lentamente {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.subir-lentamente {
+  -webkit-animation: subir-lentamente 0.5s ease-in-out forwards;
+  animation: subir-lentamente 0.5s ease-in-out forwards;
+}
+
+@-webkit-keyframes subir-lentamente {
+  0% {
+    transform: translateY(-50%) translateX(-50%);
+  }
+  100% {
+    transform: translateY(-130%) translateX(-50%);
+  }
+}
+
+.borala {
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.beleza {
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pontuacao {
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.pontuacao span {
+  color: var(--color-verse);
+}
+
+.quantos-jogos {
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 37%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.quantos-jogos span {
+  color: var(--color-verse);
+}
+
+
 
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   img {
@@ -280,6 +517,32 @@ img:hover {
     width: 80px;
   }
 
+  #game-switch {
+    height: 100px;
+    width: 100px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--color-text-title);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+  }
+
+  #game-switch:hover {
+    transform: scale(1.05);
+  }
+
+  #game-switch svg {
+    fill: var(--color-bg);
+    height: 80px;
+    width: 80px;
+  }
+
   #theme-switch svg:last-child {
     display: none;
   }
@@ -318,5 +581,21 @@ img:hover {
 
   .musica b {
     color: var(--color-text-title);
+  }
+
+  .jogar {
+    background-color: var(--color-text-title);
+    font-size: 3rem;
+    color: var(--color-bg);
+    text-align: center;
+    margin: 1rem 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition-duration: 0.2s;
   }
 }

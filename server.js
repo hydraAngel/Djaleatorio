@@ -34,6 +34,11 @@ app.get("/", (req, res) => {
   res.render("index", { num });
 });
 
+app.get("/game", (req, res) => {
+  const num = getRandomInt(1, 27);
+  res.render("game", { num });
+});
+
 app.get("/generate", (req, res) => {
   fs.readdir(path.join(process.cwd(), "letras"), (err, files) => {
     let max = files.length - 1;
