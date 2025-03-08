@@ -70,6 +70,40 @@ img:hover {
   height: 340px;
 }
 
+
+
+.overlay {
+  border-radius: 30px;
+  position: absolute;
+  width: 333px;
+  height: 333px;
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition-duration: 0.2s;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.overlay:hover {
+  transform: translate(-50%, -50%);
+  width: 340px;
+  height: 340px;
+}
+
+.avisotext {
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 #theme-switch {
   height: 50px;
   width: 50px;
@@ -138,7 +172,10 @@ img:hover {
 .musica b {
   color: var(--color-text-title);
 }
-}
+
+
+
+
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   img {
     border-radius: 30px;
