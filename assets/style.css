@@ -5,6 +5,7 @@
   --color-shadow: #6a6d67;
   --color-shadow-sec: #d6dbd2;
   --color-verse: #9E768F;
+  --color-overlay: rgba(217, 210, 182, 0.7);
 }
 
 .darkmode {
@@ -14,6 +15,8 @@
   --color-shadow: #abb1a6;
   --color-shadow-sec: #d6dbd2;
   --color-verse: #F7D6E0;
+  --color-overlay: rgba(51, 51, 51, 0.7);
+
 }
 
 @font-face {
@@ -82,7 +85,7 @@ img:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   transition-duration: 0.2s;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--color-overlay);
   z-index: 1000;
   cursor: pointer;
 }
