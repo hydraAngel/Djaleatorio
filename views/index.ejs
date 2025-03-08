@@ -28,13 +28,9 @@
     </div>
     <script>
       function generateVerso() {
-        // call to the server to get a new verse (/generate)
         fetch('/generate')
           .then((response) => response.json())
           .then((data) => {
-            // update the image src with the new verse
-            console.log(data['verso'])
-            console.log(data['num_album'])
             const imagem = document.getElementById("imagem");
             imagem.src = "/assets/"+data['num_album']+".jpg"
             const h2verso = document.getElementById("versogerado");

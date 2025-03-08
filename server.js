@@ -44,7 +44,7 @@ app.get("/generate", (req, res) => {
 
     log("Random file is", file);
     var letra = fs.readFileSync(path.join(process.cwd(), "letras", file), "utf-8");
-    var album = letra.split("\n")[(letra.split("\n")).length - 2].replace('Album: ', '');
+    var album = letra.split("\n")[(letra.split("\n")).length - 1].replace('Album: ', '');
     letra = letra.replace(/^Album:.*$/gm, '');
     var versos = letra.split("\n");
     var versos_sem_versos_vazios = [];
