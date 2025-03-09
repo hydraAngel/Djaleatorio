@@ -399,6 +399,21 @@ img:hover {
   color: var(--color-verse);
 }
 
+.melhor-pontuacao {
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.melhor-pontuacao span {
+  color: var(--color-verse);
+}
+
 .quantos-jogos {
   font-size: 1.5rem;
   color: var(--color-text-title);
@@ -412,6 +427,195 @@ img:hover {
 
 .quantos-jogos span {
   color: var(--color-verse);
+}
+
+.finalizar-btn {
+  border: 1px solid var(--color-text-title);
+  background-color: var(--color-bg);
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 25%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+.finalizar-btn:hover {
+  background-color: var(--color-text-title);
+  color: var(--color-bg);
+}
+
+.fim-de-jogo {
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.jogar-novamente-btn {
+  border: 1px solid var(--color-text-title);
+  background-color: var(--color-bg);
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+.jogar-novamente-btn:hover {
+  background-color: var(--color-text-title);
+  color: var(--color-bg);
+}
+
+.voltar-btn {
+  border: 1px solid var(--color-text-title);
+  background-color: var(--color-bg);
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+.voltar-btn:hover {
+  background-color: var(--color-text-title);
+  color: var(--color-bg);
+}
+
+.correto-btn {
+  border: 1px solid var(--color-text-title);
+  background-color: var(--color-bg);
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 52%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+.correto-btn:hover {
+  background-color: var(--color-text-title);
+  color: var(--color-bg);
+}
+
+.correto-btn svg {
+  fill: var(--color-text-title);
+  height: 30px;
+  width: 30px;
+}
+
+.correto-btn:hover svg {
+  fill: var(--color-bg);
+}
+
+.errado-btn {
+  border: 1px solid var(--color-text-title);
+  background-color: var(--color-bg);
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 52%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+.errado-btn:hover {
+  background-color: var(--color-text-title);
+  color: var(--color-bg);
+}
+
+.errado-btn svg {
+  fill: var(--color-text-title);
+  height: 30px;
+  width: 30px;
+}
+
+.errado-btn:hover svg {
+  fill: var(--color-bg);
+}
+
+.dica-btn {
+  border: 1px solid var(--color-text-title);
+  background-color: var(--color-bg);
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  margin: 1rem 0;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+.dica-btn:hover {
+  background-color: var(--color-text-title);
+  color: var(--color-bg);
+}
+
+.dica-btn svg {
+  fill: var(--color-text-title);
+  height: 30px;
+  width: 30px;
+}
+
+.dica-btn:hover svg {
+  fill: var(--color-bg);
+}
+
+/* click */
+.correto-btn:active {
+  /* scale down a little taking in account the already existing transform (translate) */
+  transform: scale(0.97) translate(-50%, -50%);
+}
+
+.errado-btn:active {
+  /* scale down a little taking in account the already existing transform (translate) */
+  transform: scale(0.97) translate(-50%, -50%);
+}
+
+.dica-btn:active {
+  /* scale down a little taking in account the already existing transform (translate) */
+  transform: scale(0.97) translate(-50%, -50%);
 }
 
 
