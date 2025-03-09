@@ -63,7 +63,13 @@ app.get("/generate", (req, res) => {
     var albums = jsondata['letras'].reverse();
     var resa = albums.find(item => item.name === album);
     var num_album = resa ? resa.num : null;
-    res.json({ status: "ok", musica: file.replace(".txt", ""), letra: fs.readFileSync(path.join(process.cwd(), "letras", file), "utf-8"), verso: verso_aleatorio, num_album: num_album });
+    res.json({ 
+      status: "ok", 
+      musica: file.replace(".txt", ""), 
+      letra: letra, 
+      verso: verso_aleatorio, 
+      num_album: num_album 
+    });
 });
   
   

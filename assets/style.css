@@ -30,6 +30,9 @@
 body {
   background-color: var(--color-bg);
   font-family: "Secular One", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .titulo {
@@ -38,9 +41,10 @@ body {
   text-align: center;
   margin: 1rem 0;
   position: absolute;
-  top: 55%;
-  left: 50%;
+  top: 54vh;
+  left: 50vw;
   transform: translate(-50%, -50%);
+  max-width: 90vw;
 }
 
 .by {
@@ -49,9 +53,10 @@ body {
   text-align: center;
   margin: 1rem 0;
   position: absolute;
-  top: 95%;
-  left: 50%;
+  top: 95vh;
+  left: 50vw;
   transform: translate(-50%, -50%);
+  max-width: 90vw;
 }
 
 .by a {
@@ -60,8 +65,8 @@ body {
 
 img {
   border-radius: 30px;
-  width: 333px;
-  height: 333px;
+  width: 15vw;
+  height: 15vw;
   position: absolute;
   top: 28%;
   left: 50%;
@@ -70,20 +75,23 @@ img {
   cursor: pointer;
   box-shadow: 16px 16px 19px var(--color-shadow),
     -16px -16px 19px var(--color-shadow-sec);
+  min-width: 333px;
+  min-height: 333px;
+  
 }
 
 img:hover {
   transform: translate(-50%, -50%);
-  width: 340px;
-  height: 340px;
+  width: 15.2vw;
+  height: 15.2vw;
+
 }
 
 .overlay {
   border-radius: 30px;
   position: absolute;
-  width: 333px;
-  height: 333px;
-  position: absolute;
+  width: 30vw;
+  height: 30vw;
   top: 28%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -91,12 +99,16 @@ img:hover {
   background-color: var(--color-overlay);
   z-index: 1000;
   cursor: pointer;
+  max-width: 333px;
+  max-height: 333px;
 }
 
 .overlay:hover {
   transform: translate(-50%, -50%);
-  width: 340px;
-  height: 340px;
+  width: 31vw;
+  height: 31vw;
+  max-width: 340px;
+  max-height: 340px;
 }
 
 .avisotext {
@@ -108,6 +120,7 @@ img:hover {
   top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 90vw;
 }
 
 .svg-aviso-game {
@@ -411,7 +424,7 @@ img:hover {
 }
 
 .melhor-pontuacao span {
-  color: var(--color-verse);
+  color: var (--color-verse);
 }
 
 .quantos-jogos {
