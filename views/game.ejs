@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DJAVANEAR</title>
+    <link rel="stylesheet" type="text/css" href="/assets/style.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="/assets/darkmode.js" defer></script>
+    <script
+      type="text/javascript"
+      src="/assets/generateverso.js"
+      defer
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Djavanear game é um site que gera versos aleatórios do Djavan e você tem que descobrir se o verso pertence ao álbum mostrado"
+    />
+    <meta
+      name="keywords"
+      content="djavan, djavanear
+    "
+    />
+    <meta name="author" content="Pedro Paiva" />
+    <meta property="og:title" content="Djavanear" />
+    <meta
+      property="og:description"
+      content="Djavanear é um site que gera versos aleatórios do Djavan e você tem que descobrir se o verso pertence ao álbum mostrado"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Djavanear" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Djavanear" />
+    <meta
+      name="twitter:description"
+      content="Djavanear é um site que gera versos aleatórios do Djavan e você tem que descobrir se o verso pertence ao álbum mostrado"
+    />
+    <meta
+      name="twitter:image"
+      content="https://djavanear.vercel.app/assets/1.jpg"
+    />
+    <meta name="twitter:site" content="@paiva_sk8" />
+    <meta name="twitter:creator" content="@paiva_sk8" />
+    <meta name="twitter:domain" content="https://djavanear.vercel.app/" />
+    <meta name="twitter:label1" content="Versos" />
+    <meta name="twitter:data1" content="Djavan" />
+    <meta name="twitter:label2" content="Autor" />
+    <meta name="twitter:data2" content="Pedro Paiva" />
+    <meta name="twitter:label3" content="Site" />
+    <meta name="twitter:data3" content="Djavanear" />
+    <meta name="twitter:label4" content="Instagram" />
+    <meta name="twitter:data4" content="@paiva_sk8" />
+    <meta name="twitter:label5" content="Github" />
+    <meta name="twitter:data5" content="@hydraAngel" />
+    <meta name="twitter:label7" content="Email" />
+    <meta name="twitter:data7" content="ppvverissimo@gmail.com" />
+
+    <meta
+      property="og:image"
+      content="https://djavanear.vercel.app/assets/1.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://djavanear.vercel.app/assets/1.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Djavanear" />
+  </head>
+  <script>
+    /*to prevent Firefox FOUC, this must be here*/
+    let FF_FOUC_FIX;
+  </script>
+  <body>
+    <script>
+      0;
+    </script>
+    <button id="game-switch" onclick="window.location.href = '/'">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#e3e3e3"
+      >
+        <path
+          d="m357.31-418.09 210.13 210.7-87.87 87.3-359.48-359.48 360.34-360.34 88.44 87.3-211.56 211.57h482.6v122.95h-482.6Z"
+        />
+      </svg>
+    </button>
+    <button id="theme-switch">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#e3e3e3"
+      >
+        <path
+          d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#e3e3e3"
+      >
+        <path
+          d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"
+        />
+      </svg>
+    </button>
+    <div class="container">
+      <div class="overlayeimagem-container">
+        <div class="overlay">
+          <h3 class="avisotext game">Clique no botão para jogar</h3>
+          <svg
+            class="svg-aviso-game"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#e3e3e3"
+          >
+            <path
+              d="M418.09-839.91v482.6l-210.7-210.13-87.3 87.87 359.48 359.48 360.34-360.34-87.3-88.44-211.57 211.56v-482.6H418.09Z"
+            />
+          </svg>
+        </div>
+        <img id="imagem" src="/assets/<%= num %>.jpg" />
+      </div>
+      <h1 class="titulo">O quão <b>Djafã você é?</b></h1>
+      <button id="jogar-btn" class="jogar">Jogar agora</button>
+      <h2 class="verso hidden" id="versogerado"></h2>
+      <h3 class="musica hidden" id="qualmusica"></h3>
+      <h3 class="regras hidden" id="regras">
+        O jogo é simples. Você deve responder se o trecho da musica pertence ao
+        álbum mostrado. Cada acerto vale 5 pontos e cada erro vale -3.
+      </h3>
+      <h3 class="vamos-jogar hidden" id="vamos-jogar">Vamos jogar?</h3>
+      <div class="sim-ou-nao-container">
+        <button id="sim-btn" class="sim hidden">Sim</button>
+        <button id="nao-btn" class="nao hidden">Não</button>
+      </div>
+      <h3 class="beleza hidden">Beleza então, já que você não quer jogar.</h3>
+      <h3 class="borala hidden">Bora lá então, vamos jogar!</h3>
+      <button id="finalizar-btn" class="finalizar-btn hidden">Finalizar</button>
+      <h3 class="pontuacao hidden">
+        Sua pontuação é: <span id="pontuacao">0</span>
+      </h3>
+      <h3 class="melhor-pontuacao hidden">
+        Sua melhor pontuação foi: <span id="melhor_pontuacao">0</span>
+      </h3>
+      <h3 class="fim-de-jogo hidden">
+        Fim de jogo! Sua pontuação final é: <span id="pontuacao-final">0</span>
+      </h3>
+      <h3 class="quantos-jogos hidden">
+        Você está no round <span id="jogo-atual">1</span>
+      </h3>
+      <button
+        class="jogar-novamente-btn hidden"
+        onclick="window.location.reload()"
+      >
+        Jogue novamente
+      </button>
+      <button class="voltar-btn hidden" onclick="window.location.href='/'">
+        Voltar para a página principal
+      </button>
+      <button class="correto-btn hidden" id="correto-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#e3e3e3"
+        >
+          <path
+            d="m422.3-271.48 304.57-305.13-82.48-83.61L422.3-438.13 313.65-546.78l-83.04 83.61L422.3-271.48ZM480-40.09q-91.34 0-171.86-34.35-80.53-34.35-139.94-93.76-59.41-59.41-93.76-139.94Q40.09-388.66 40.09-480q0-91.59 34.41-172.06 34.4-80.47 93.92-140.05 59.51-59.58 139.93-93.69 80.43-34.11 171.65-34.11 91.58 0 172.04 34.11 80.47 34.11 140.06 93.7t93.7 140.08q34.11 80.49 34.11 172.1 0 91.62-34.11 171.8-34.11 80.19-93.69 139.7-59.58 59.52-140.05 93.92Q571.59-40.09 480-40.09Z"
+          />
+        </svg>
+      </button>
+      <button id="errado-btn" class="errado-btn hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#e3e3e3"
+        >
+          <path
+            d="M340.78-266.78 480-406l139.22 139.22 74-74L554-480l139.22-139.22-74-74L480-554 340.78-693.22l-74 74L406-480 266.78-340.78l74 74ZM480-40.09q-91.34 0-171.86-34.35-80.53-34.35-139.94-93.76-59.41-59.41-93.76-139.94Q40.09-388.66 40.09-480q0-91.59 34.41-172.06 34.4-80.47 93.92-140.05 59.51-59.58 139.93-93.69 80.43-34.11 171.65-34.11 91.58 0 172.04 34.11 80.47 34.11 140.06 93.7t93.7 140.08q34.11 80.49 34.11 172.1 0 91.62-34.11 171.8-34.11 80.19-93.69 139.7-59.58 59.52-140.05 93.92Q571.59-40.09 480-40.09Z"
+          />
+        </svg>
+      </button>
+      <button class="dica-btn hidden" id="dica-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#e3e3e3"
+        >
+          <path
+            d="M479.98-27.13q-38.55 0-65.24-28.39-26.7-28.39-25.26-70.35h181.04q1.44 41.96-25.28 70.35-26.71 28.39-65.26 28.39ZM304.57-158.61v-105.43h350.86v105.43H304.57Zm13.73-138.17q-79.69-46.26-128.52-125.73-48.82-79.46-48.82-173.32 0-141.03 98.86-239.75 98.87-98.73 240.11-98.73t240.18 98.73q98.93 98.72 98.93 239.75 0 93.82-48.54 173.3-48.54 79.49-128.8 125.75H318.3Zm37.09-122.96h249.22q42.74-31.44 67.11-76.8 24.37-45.36 24.37-98.82 0-91.08-62.97-153.53-62.97-62.46-153.35-62.46t-153.12 62.46q-62.74 62.45-62.74 153.53 0 53.46 24.37 98.82 24.37 45.36 67.11 76.8Zm124.61 0Z"
+          />
+        </svg>
+      </button>
+
+      <h3 class="by">
+        by
+        <a href="https://www.instagram.com/paiva_sk8?igsh=MXA4a2V1cGNycTkwdw=="
+          >@paiva_sk8</a
+        >
+      </h3>
+    </div>
+    <script>
+      // remove ja-sabe from localStorage on ctrl+shift+l
+      document.addEventListener("keydown", (event) => {
+        if (event.ctrlKey && event.shiftKey && event.key === "L") {
+          localStorage.removeItem("ja-sabe");
+        }
+      });
+    </script>
+    <script>
+      const btn = document.getElementById("jogar-btn");
+      btn.addEventListener("click", () => {
+        document.querySelector(".overlay").classList.add("sumir-lentamente");
+        document
+          .querySelector(".svg-aviso-game")
+          .classList.add("sumir-lentamente");
+        document.querySelector(".titulo").classList.add("sumir-lentamente");
+
+        setTimeout(() => {
+          document.querySelector(".overlay").style.display = "none";
+          document.querySelector(".svg-aviso-game").style.display = "none";
+          document.querySelector(".titulo").style.display = "none";
+        }, 1000);
+
+        document.querySelector("#jogar-btn").classList.add("sumir-lentamente");
+        setTimeout(() => {
+          document.querySelector("#jogar-btn").style.display = "none";
+        }, 1000);
+        if (localStorage.getItem("ja-sabe").includes("false")) {
+          const h3regras = document.getElementById("regras");
+          setTimeout(() => {
+            h3regras.classList.remove("hidden");
+            h3regras.classList.add("aparecer-lentamente");
+          }, 800);
+          setTimeout(() => {
+            h3regras.classList.remove("aparecer-lentamente");
+            h3regras.classList.add("subir-lentamente");
+            const h3vamosjogar = document.getElementById("vamos-jogar");
+            setTimeout(() => {
+              h3vamosjogar.classList.remove("hidden");
+              h3vamosjogar.classList.add("aparecer-lentamente");
+              const sim = document.getElementById("sim-btn");
+              const nao = document.getElementById("nao-btn");
+              setTimeout(() => {
+                sim.classList.remove("hidden");
+                sim.classList.add("aparecer-lentamente");
+                nao.classList.remove("hidden");
+                nao.classList.add("aparecer-lentamente");
+              }, 500);
+            }, 500);
+          }, 5800);
+        } else {
+          // pula as regras e vai direto para o jogo
+          const h3borala = document.querySelector(".borala");
+          setTimeout(() => {
+            h3borala.classList.remove("hidden");
+            h3borala.classList.add("aparecer-lentamente");
+          }, 800);
+          setTimeout(() => {
+            h3borala.classList.remove("aparecer-lentamente");
+            h3borala.classList.add("sumir-lentamente");
+          }, 2800);
+          setTimeout(() => {
+            h3borala.style.display = "none";
+          }, 5800);
+          var pontos = 0;
+          var round_atual = 1;
+          // comeca a logica do jogo depois de 3.8 segundos de animacao do h3borala sumindo
+          setTimeout(() => {
+            if (localStorage.getItem("melhor_pontuacao") == null) {
+              localStorage.setItem("melhor_pontuacao", 0);
+            }
+            document.querySelector(".correto-btn").classList.remove("hidden");
+            document.querySelector(".errado-btn").classList.remove("hidden");
+            document
+              .querySelector(".correto-btn")
+              .classList.add("aparecer-lentamente");
+            document
+              .querySelector(".errado-btn")
+              .classList.add("aparecer-lentamente");
+            document.querySelector(".dica-btn").classList.remove("hidden");
+            document
+              .querySelector(".dica-btn")
+              .classList.add("aparecer-lentamente");
+            document
+              .querySelector(".melhor-pontuacao")
+              .classList.remove("hidden");
+            document
+              .querySelector(".melhor-pontuacao")
+              .classList.add("aparecer-lentamente");
+
+            document.getElementById("melhor_pontuacao").textContent =
+              localStorage.getItem("melhor_pontuacao");
+            document.getElementById("jogo-atual").textContent = round_atual;
+            document.querySelector(".quantos-jogos").classList.remove("hidden");
+            document
+              .querySelector(".quantos-jogos")
+              .classList.add("aparecer-lentamente");
+            document.querySelector(".pontuacao").classList.remove("hidden");
+            document
+              .querySelector(".pontuacao")
+              .classList.add("aparecer-lentamente");
+            document.querySelector(".finalizar-btn").classList.remove("hidden");
+            document
+              .querySelector(".finalizar-btn")
+              .classList.add("aparecer-lentamente");
+            document.querySelector(".verso").classList.remove("hidden");
+          }, 3000);
+
+          const finalizarBtn = document.querySelector(".finalizar-btn");
+          let gameRunning = true;
+          let respondeu = false;
+          let perdeu = false;
+          let qualResposta;
+          const trueBtn = document.getElementById("correto-btn");
+          const falseBtn = document.getElementById("errado-btn");
+          let gerou = false;
+          trueBtn.addEventListener("click", () => {
+            respondeu = true;
+            qualResposta = "correto";
+          });
+          falseBtn.addEventListener("click", () => {
+            respondeu = true;
+            qualResposta = "errado";
+          });
+
+          finalizarBtn.addEventListener("click", () => {
+            gameRunning = false;
+          });
+          let verso = "";
+          let musica = "";
+          let album = "";
+          let album_aleatorio_mostrado = Math.floor(Math.random() * 28) + 1;
+          let quantidade_errados = 0;
+          let respostaCorretaFrequencia = 3; // Frequência de respostas corretas
+          let contadorRespostas = 0;
+          const dicaBtn = document.getElementById("dica-btn");
+
+          async function updateRound() {
+            try {
+              const data = await generateVerso2();
+              musica = data["musica"];
+              verso = data["verso"];
+              album = data["num_album"];
+              contadorRespostas++;
+
+              if (contadorRespostas % respostaCorretaFrequencia === 0) {
+                album_aleatorio_mostrado = album;
+              } else {
+                album_aleatorio_mostrado = Math.floor(Math.random() * 28) + 1;
+              }
+
+              document.getElementById(
+                "imagem"
+              ).src = `/assets/${album_aleatorio_mostrado}.jpg`;
+              document.getElementById("versogerado").textContent =
+                '"' + verso + '"';
+              gerou = true;
+              console.log(verso);
+              console.log(musica);
+              console.log(album);
+              console.log(album_aleatorio_mostrado);
+            } catch (error) {
+              console.error(error);
+            }
+          }
+
+          const gameInterval = setInterval(() => {
+            if (!gameRunning) {
+              clearInterval(gameInterval);
+              document.querySelector(".fim-de-jogo").classList.remove("hidden");
+              document
+                .querySelector(".fim-de-jogo")
+                .classList.add("aparecer-lentamente");
+              document.getElementById("pontuacao-final").textContent = pontos;
+              document
+                .querySelector(".melhor-pontuacao")
+                .classList.remove("aparecer-lentamente");
+              document
+                .querySelector(".quantos-jogos")
+                .classList.remove("aparecer-lentamente");
+              document
+                .querySelector(".pontuacao")
+                .classList.remove("aparecer-lentamente");
+              document
+                .querySelector(".finalizar-btn")
+                .classList.remove("aparecer-lentamente");
+              document
+                .querySelector(".melhor-pontuacao")
+                .classList.add("sumir-lentamente");
+              document
+                .querySelector(".quantos-jogos")
+                .classList.add("sumir-lentamente");
+              document
+                .querySelector(".pontuacao")
+                .classList.add("sumir-lentamente");
+              document
+                .querySelector(".finalizar-btn")
+                .classList.add("sumir-lentamente");
+              document
+                .querySelector(".correto-btn")
+                .classList.remove("aparecer-lentamente");
+              document
+                .querySelector(".errado-btn")
+                .classList.remove("aparecer-lentamente");
+              document
+                .querySelector(".dica-btn")
+                .classList.remove("aparecer-lentamente");
+              document
+                .querySelector(".correto-btn")
+                .classList.add("sumir-lentamente");
+              document
+                .querySelector(".errado-btn")
+                .classList.add("sumir-lentamente");
+              document
+                .querySelector(".dica-btn")
+                .classList.add("sumir-lentamente");
+              document.querySelector(".voltar-btn").classList.remove("hidden");
+              document
+                .querySelector(".jogar-novamente-btn")
+                .classList.remove("hidden");
+              document
+                .querySelector(".voltar-btn")
+                .classList.add("aparecer-lentamente");
+              document
+                .querySelector(".jogar-novamente-btn")
+                .classList.add("aparecer-lentamente");
+
+              if (perdeu) {
+                document.querySelector(".fim-de-jogo").textContent =
+                  "Você perdeu! Sua pontuação final é: " + pontos;
+              }
+
+              if (parseInt(localStorage.getItem("melhor_pontuacao")) < pontos) {
+                localStorage.setItem("melhor_pontuacao", pontos);
+              }
+
+              return;
+            }
+
+            document.getElementById("pontuacao").textContent = pontos;
+            document.getElementById("jogo-atual").textContent = round_atual;
+
+            if (!gerou) {
+              updateRound();
+            }
+
+            dicaBtn.addEventListener("click", () => {
+              const h3musica = document.getElementById("qualmusica");
+              h3musica.innerHTML = `Djavan em: <b>${musica.replace(
+                ".text",
+                ""
+              )}</b>`;
+              h3musica.classList.remove("hidden");
+            });
+
+            if (respondeu) {
+              respondeu = false;
+              gerou = false;
+              const h3musica = document.getElementById("qualmusica");
+              h3musica.innerHTML = ``;
+              h3musica.classList.add("hidden");
+
+              if (qualResposta == "correto") {
+                if (album == album_aleatorio_mostrado) {
+                  pontos += 5;
+                  // update melhor pontuacao se necessario no localStorage
+                  if (
+                    parseInt(localStorage.getItem("melhor_pontuacao")) < pontos
+                  ) {
+                    localStorage.setItem("melhor_pontuacao", pontos);
+                  }
+                  document.getElementById("pontuacao").textContent = pontos;
+                } else {
+                  document.getElementById("pontuacao").textContent = pontos;
+                  // esconde o versogerado e a musica
+                  document.querySelector(".verso").classList.add("hidden");
+                  document.querySelector("#qualmusica").classList.add("hidden");
+                  gameRunning = false;
+                  perdeu = true;
+                }
+              } else if (qualResposta == "errado") {
+                if (album != album_aleatorio_mostrado) {
+                  pontos += 5;
+                  // update melhor pontuacao se necessario no localStorage
+                  if (
+                    parseInt(localStorage.getItem("melhor_pontuacao")) < pontos
+                  ) {
+                    localStorage.setItem("melhor_pontuacao", pontos);
+                  }
+                  document.getElementById("pontuacao").textContent = pontos;
+                  document
+                    .querySelector(".errado-btn")
+                    .classList.add("acertou");
+                } else {
+                  // update melhor pontuacao se necessario no localStorage
+                  if (
+                    parseInt(localStorage.getItem("melhor_pontuacao")) < pontos
+                  ) {
+                    localStorage.setItem("melhor_pontuacao", pontos);
+                  }
+                  document.getElementById("pontuacao").textContent = pontos;
+                  document.querySelector(".errado-btn").classList.add("errou");
+                  document.querySelector(".verso").classList.add("hidden");
+                  document.querySelector("#qualmusica").classList.add("hidden");
+                }
+              }
+              round_atual++;
+            }
+          }, 300);
+        }
+      });
+
+      const sim = document.getElementById("sim-btn");
+      const nao = document.getElementById("nao-btn");
+
+      sim.addEventListener("click", () => {
+        localStorage.setItem("ja-sabe", JSON.stringify({ "ja clicou": true }));
+        sim.classList.remove("aparecer-lentamente");
+        nao.classList.remove("aparecer-lentamente");
+        const h3regras = document.getElementById("regras");
+        const h3vamosjogar = document.getElementById("vamos-jogar");
+        h3vamosjogar.classList.remove("aparecer-lentamente");
+        h3regras.classList.remove("subir-lentamente");
+        // maintain the translateY -130% on h3regras manually without the class subir-lentamente
+        h3regras.style.transform = "translateY(-130%) translateX(-50%)";
+
+        h3regras.classList.add("sumir-lentamente");
+        h3vamosjogar.classList.add("sumir-lentamente");
+        sim.classList.add("sumir-lentamente");
+        nao.classList.add("sumir-lentamente");
+        setTimeout(() => {
+          document.querySelector(".regras").style.display = "none";
+          document.querySelector(".vamos-jogar").style.display = "none";
+          document.querySelector(".sim-ou-nao-container").style.display =
+            "none";
+        }, 3000);
+
+        const h3borala = document.querySelector(".borala");
+        setTimeout(() => {
+          h3borala.classList.remove("hidden");
+          h3borala.classList.add("aparecer-lentamente");
+        }, 800);
+        setTimeout(() => {
+          h3borala.classList.remove("aparecer-lentamente");
+          h3borala.classList.add("sumir-lentamente");
+        }, 2800);
+        setTimeout(() => {
+          h3borala.style.display = "none";
+        }, 5800);
+
+        // comeca a logica do jogo depois de 3.8 segundos de animacao do h3borala sumindo
+        var pontos = 0;
+        var jogo_atual = 1;
+        document.getElementById("jogo-atual").textContent = jogo_atual;
+        document.querySelector(".quantos-jogos").classList.remove("hidden");
+        document
+          .querySelector(".quantos-jogos")
+          .classList.add("aparecer-lentamente");
+        document.querySelector(".pontuacao").classList.remove("hidden");
+        document
+          .querySelector(".pontuacao")
+          .classList.add("aparecer-lentamente");
+        document.querySelector(".finalizar-btn").classList.remove("hidden");
+        document
+          .querySelector(".finalizar-btn")
+          .classList.add("aparecer-lentamente");
+        document.querySelector(".verso").classList.remove("hidden");
+        // while(true) {
+
+        // }
+      });
+
+      nao.addEventListener("click", () => {
+        // localStorage.setItem("ja-sabe", JSON.stringify({ "ja clicou": true }));
+        sim.classList.remove("aparecer-lentamente");
+        nao.classList.remove("aparecer-lentamente");
+        const h3regras = document.getElementById("regras");
+        const h3vamosjogar = document.getElementById("vamos-jogar");
+        h3vamosjogar.classList.remove("aparecer-lentamente");
+        h3regras.classList.remove("subir-lentamente");
+        // maintain the translateY -130% on h3regras manually without the class subir-lentamente
+        h3regras.style.transform = "translateY(-130%) translateX(-50%)";
+
+        h3regras.classList.add("sumir-lentamente");
+        h3vamosjogar.classList.add("sumir-lentamente");
+        sim.classList.add("sumir-lentamente");
+        nao.classList.add("sumir-lentamente");
+        setTimeout(() => {
+          document.querySelector(".regras").style.display = "none";
+          document.querySelector(".vamos-jogar").style.display = "none";
+          document.querySelector(".sim-ou-nao-container").style.display =
+            "none";
+        }, 3000);
+
+        const h3belza = document.querySelector(".beleza");
+        setTimeout(() => {
+          h3belza.classList.remove("hidden");
+          h3belza.classList.add("aparecer-lentamente");
+        }, 800);
+        setTimeout(() => {
+          h3belza.classList.remove("aparecer-lentamente");
+          h3belza.classList.add("sumir-lentamente");
+        }, 3800);
+        setTimeout(() => {
+          h3belza.style.display = "none";
+        }, 5800);
+
+        // redirect to /
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 3000);
+      });
+
+      // aumenta a velocidade das animacoes para testar em desenvolvimento quando eu apertar ctrl+alt+z
+      document.addEventListener("keydown", (event) => {
+        if (event.ctrlKey && event.altKey && event.key === "Z") {
+          document.querySelectorAll(".hidden").forEach((element) => {
+            element.style.transition = "0.1s";
+          });
+          document.querySelectorAll(".sumir-lentamente").forEach((element) => {
+            element.style.transition = "0.1s";
+          });
+          document
+            .querySelectorAll(".aparecer-lentamente")
+            .forEach((element) => {
+              element.style.transition = "0.1s";
+            });
+          document.querySelectorAll(".subir-lentamente").forEach((element) => {
+            element.style.transition = "0.1s";
+          });
+        }
+      });
+
+      function detectMob() {
+        const toMatch = [
+          /Android/i,
+          /webOS/i,
+          /iPhone/i,
+          /iPad/i,
+          /iPod/i,
+          /BlackBerry/i,
+          /Windows Phone/i,
+        ];
+
+        return toMatch.some((toMatchItem) => {
+          return navigator.userAgent.match(toMatchItem);
+        });
+      }
+
+      const ja_sabe = JSON.parse(localStorage.getItem("ja-sabe"));
+      if (ja_sabe == null) {
+        localStorage.setItem("ja-sabe", JSON.stringify({ "ja clicou": false }));
+      } else if (ja_sabe["ja clicou"] == false) {
+        document.querySelector(".overlay").style.display = "block";
+      } else if (ja_sabe["ja clicou"] == true) {
+        document.querySelector(".overlay").style.display = "none";
+      }
+
+      const overlay = document.querySelector(".overlay");
+      const imagem = document.getElementById("imagem");
+      const avisotext = document.querySelector(".avisotext");
+
+      overlay.addEventListener("mouseover", () => {
+        if (!detectMob()) {
+          imagem.style.width = 340 + "px";
+          imagem.style.height = 340 + "px";
+          avisotext.style.font_size = 2 + "rem";
+        } else {
+          imagem.style.width = 600 + "px";
+          imagem.style.height = 600 + "px";
+        }
+      });
+
+      overlay.addEventListener("mouseout", () => {
+        if (!detectMob()) {
+          imagem.style.width = 333 + "px";
+          imagem.style.height = 333 + "px";
+          avisotext.style.font_size = 1.5 + "rem";
+        } else {
+          imagem.style.width = 607 + "px";
+          imagem.style.height = 607 + "px";
+        }
+      });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FEN7DMVKHJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FEN7DMVKHJ");
+    </script>
+  </body>
+</html>
