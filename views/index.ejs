@@ -62,6 +62,8 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Djavanear" />
+    <!-- use random image from the assets folder as icon -->
+    <link rel="icon" href="/assets/<%= Math.floor(Math.random() * 10) + 1 %>.jpg" />
   </head>
   <body>
     <button id="game-switch" onclick="window.location.href = '/game'">

@@ -41,35 +41,42 @@ app.get("/game", (req, res) => {
 
 app.get("/generate", (req, res) => {
   fs.readdir(path.join(process.cwd(), "letras"), (err, files) => {
-    let max = files.length - 1;
-    let min = 0;
-
-    let index = Math.round(Math.random() * (max - min) + min);
-    let file = files[index];
-
-    log("Random file is", file);
-    var letra = fs.readFileSync(path.join(process.cwd(), "letras", file), "utf-8");
-    var album = letra.split("\n")[(letra.split("\n")).length - 1].replace('Album: ', '');
-    letra = letra.replace(/^Album:.*$/gm, '');
-    var versos = letra.split("\n");
-    var versos_sem_versos_vazios = [];
-    for (var i = 0; i < versos.length; i++) {
-        if (versos[i].trim() != "") {
-            versos_sem_versos_vazios.push(versos[i]);
-        }
+    if (err) {
+      console.error('Erro ao ler diretório:', err);
+      return res.status(500).json({ status: "error", message: "Erro ao ler arquivos" });
     }
-    var verso_aleatorio = versos_sem_versos_vazios[Math.floor(Math.random() * versos_sem_versos_vazios.length)];
-    var jsondata = JSON.parse(fs.readFileSync('./assets/test1.json', 'utf8'));
-    var albums = jsondata['letras'].reverse();
-    var resa = albums.find(item => item.name === album);
-    var num_album = resa ? resa.num : null;
-    res.json({ 
-      status: "ok", 
-      musica: file.replace(".txt", ""), 
-      letra: letra, 
-      verso: verso_aleatorio, 
-      num_album: num_album 
-    });
+
+    const index = Math.floor(Math.random() * files.length);
+    const file = files[index];
+
+    try {
+      const letra = fs.readFileSync(path.join(process.cwd(), "letras", file), "utf-8");
+      const album = letra.split("\n").pop().replace('Album: ', '');
+      const letraSemAlbum = letra.replace(/^Album:.*$/gm, '');
+      
+      const versos = letraSemAlbum
+        .split("\n")
+        .filter(verso => verso.trim() !== "");
+      
+      const versoAleatorio = versos[Math.floor(Math.random() * versos.length)];
+      
+      const jsondata = JSON.parse(fs.readFileSync('./assets/test1.json', 'utf8'));
+      const albums = jsondata['letras'].reverse();
+      const albumInfo = albums.find(item => item.name === album);
+      const numAlbum = albumInfo?.num || null;
+
+      res.json({
+        status: "ok",
+        musica: file.replace(".txt", ""),
+        letra: letraSemAlbum,
+        verso: versoAleatorio,
+        num_album: numAlbum
+      });
+
+    } catch (error) {
+      console.error('Erro ao processar arquivo:', error);
+      res.status(500).json({ status: "error", message: "Erro ao processar arquivo" });
+    }
 });
   
   
