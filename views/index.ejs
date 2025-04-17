@@ -130,7 +130,7 @@
       if (ja_sabe == null) {
         localStorage.setItem("ja-sabe", JSON.stringify({ "ja clicou": false }));
       } else if (ja_sabe["ja clicou"] == false) {
-        document.querySelector(".overlay").style.display = "block";
+        document.querySelector(".overlay").style.display = "flex";
       } else if (ja_sabe["ja clicou"] == true) {
         document.querySelector(".overlay").style.display = "none";
       }
@@ -153,32 +153,14 @@
 
       overlay.addEventListener("click", () => {
         generateVerso();
+        localStorage.setItem(
+            "ja-sabe",
+            JSON.stringify({ "ja clicou": true })
+          );
         // destroy overlay
         overlay.style.display = "none";
       });
 
-      overlay.addEventListener("mouseover", () => {
-        if (!detectMob()) {
-          imagem.style.width = 340 + "px";
-          imagem.style.height = 340 + "px";
-          avisotext.style.font_size = 2 + "rem";
-        } else {
-          imagem.style.width = 600 + "px";
-          imagem.style.height = 600 + "px";
-        }
-      });
-
-      overlay.addEventListener("mouseout", () => {
-        if (!detectMob()) {
-          imagem.style.width = 333 + "px";
-          imagem.style.height = 333 + "px";
-          avisotext.style.font_size = 1.5 + "rem";
-        } else {
-          imagem.style.width = 607 + "px";
-          imagem.style.height = 607 + "px";
-        }
-        
-      });
 
       
     </script>
