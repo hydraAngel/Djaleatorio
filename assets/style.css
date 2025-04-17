@@ -1,3 +1,4 @@
+/* Variáveis de tema */
 :root {
   --color-text-by: #444554;
   --color-text-title: #333;
@@ -20,159 +21,141 @@
   --color-link: #fbf2c0;
 }
 
-@font-face {
-  font-family: "Secular One";
-  src: url("SecularOne-Regular.woff") format("woff"),
-    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-      url("SecularOne-Regular.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+/* Reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background-color: var(--color-bg);
   font-family: "Secular One", sans-serif;
-  margin: 0;
-  padding: 0;
+  color: var(--color-text-title);
   overflow-x: hidden;
 }
 
-.titulo {
-  font-size: 3rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 54vh;
-  left: 50vw;
-  transform: translate(-50%, -50%);
-  max-width: 90vw;
+/* Container principal em flex para ordenar o fluxo */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
 }
 
+/* Wrapper da imagem para overlay absoluto */
+.image-wrapper {
+  position: relative;
+  width: clamp(300px, 15vw, 400px);
+  aspect-ratio: 1 / 1;
+  margin-bottom: 1.5rem;
+}
+
+/* Imagem do álbum */
+.image-wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow:
+          16px 16px 19px var(--color-shadow),
+          -16px -16px 19px var(--color-shadow-sec);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.image-wrapper img:hover {
+  transform: scale(1.02);
+}
+
+/* Overlay “Clique para gerar verso” */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-overlay);
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.overlay:hover {
+  transform: scale(1.03);
+}
+
+/* Texto de aviso dentro do overlay */
+.avisotext {
+  font-size: 1.5rem;
+  color: var(--color-text-title);
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Título principal */
+.titulo {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-text-title);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Verso gerado */
+.verso {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--color-verse);
+  text-align: center;
+  margin-bottom: 1rem;
+  max-width: 90%;
+}
+
+/* Nome da música */
+.musica {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  color: var(--color-verse);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Créditos “by” */
 .by {
   font-size: 1rem;
   color: var(--color-text-by);
   text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 95vh;
-  left: 50vw;
-  transform: translate(-50%, -50%);
-  max-width: 90vw;
+  margin-top: auto;    /* envia para o rodapé do container */
+  margin-bottom: 1rem;
 }
 
 .by a {
   color: var(--color-link);
 }
 
-img {
-  border-radius: 30px;
-  width: 15vw;
-  height: 15vw;
-  position: absolute;
-  top: 28%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition-duration: 0.2s;
-  cursor: pointer;
-  box-shadow: 16px 16px 19px var(--color-shadow),
-    -16px -16px 19px var(--color-shadow-sec);
-  min-width: 333px;
-  min-height: 333px;
-  
+/* Para esconder elementos até a ação do usuário */
+.hidden {
+  display: none;
 }
 
-img:hover {
-  transform: translate(-50%, -50%);
-  width: 15.2vw;
-  height: 15.2vw;
-
-}
-
-.overlay {
-  border-radius: 30px;
-  position: absolute;
-  width: 30vw;
-  height: 30vw;
-  top: 28%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition-duration: 0.2s;
-  background-color: var(--color-overlay);
-  z-index: 1000;
-  cursor: pointer;
-  max-width: 333px;
-  max-height: 333px;
-}
-
-.overlay:hover {
-  transform: translate(-50%, -50%);
-  width: 31vw;
-  height: 31vw;
-  max-width: 340px;
-  max-height: 340px;
-}
-
-.avisotext {
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 47%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90vw;
-}
-
-.svg-aviso-game {
-  position: absolute;
-  top: 66%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  fill: var(--color-text-title);
-}
-
-.svg-aviso-game {
-  -webkit-animation: slide-top 0.5s ease infinite alternate both;
-  animation: slide-top 0.5s ease infinite alternate both;
-}
-
-@-webkit-keyframes slide-top {
-  0% {
-    -webkit-transform: translateY(-50%) translateX(-50%);
-    transform: translateY(-50%) translateX(-50%);
-  }
-
-  50% {
-    -webkit-transform: translateY(-40%) translateX(-50%);
-    transform: translateY(-40%) translateX(-50%);
-  }
-  100% {
-    -webkit-transform: translateY(-50%) translateX(-50%);
-    transform: translateY(-50%) translateX(-50%);
-  }
-}
-
-.avisotext.game {
-  top: 20%;
-}
-
+/* Botão de troca de tema (fixo no topo-direita) */
 #theme-switch {
-  border: 1px solid var(--color-text-title);
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: var(--color-text-title);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
   top: 20px;
   right: 20px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--color-text-title);
+  border-radius: 50%;
+  background-color: var(--color-text-title);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition-duration: 0.2s;
+  transition: transform 0.2s;
+  padding: 0;
 }
 
 #theme-switch:hover {
@@ -180,38 +163,12 @@ img:hover {
 }
 
 #theme-switch svg {
-  fill: var(--color-bg);
-  height: 30px;
   width: 30px;
-}
-
-#game-switch {
-  border: 1px solid var(--color-text-title);
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: var(--color-text-title);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-  transition-duration: 0.2s;
-}
-
-#game-switch:hover {
-  transform: scale(1.05);
-}
-
-#game-switch svg {
-  fill: var(--color-bg);
   height: 30px;
-  width: 30px;
+  fill: var(--color-bg);
 }
 
+/* Alterna ícones de sol/lua */
 #theme-switch svg:last-child {
   display: none;
 }
@@ -224,410 +181,30 @@ img:hover {
   display: block;
 }
 
-.hidden {
-  display: none;
-}
-
-.verso {
-  font-size: 2rem;
-  color: var(--color-verse);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 62%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 900px;
-}
-
-.musica {
-  font-size: 1.4rem;
-  color: var(--color-verse);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 67%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.musica b {
-  color: var(--color-text-title);
-}
-
-.regras {
-  font-size: 1.4rem;
-  color: var(--color-verse);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.jogar {
+/* Opcional: botão de jogo, se estiver usando */
+#game-switch {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
   border: 1px solid var(--color-text-title);
-  background-color: var(--color-bg);
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 64%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition-duration: 0.2s;
-}
-
-.jogar:hover {
+  border-radius: 50%;
   background-color: var(--color-text-title);
-  color: var(--color-bg);
-}
-
-.vamos-jogar {
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.sim-ou-nao-container {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
-  width: 100%;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.sim,
-.nao {
-  border: 1px solid var(--color-text-title);
-  background-color: var(--color-bg);
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
   cursor: pointer;
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition-duration: 0.2s;
+  transition: transform 0.2s;
+  padding: 0;
 }
 
-.sim:hover {
-  background-color: #77dd77;
-  color: #333;
+#game-switch:hover {
+  transform: scale(1.05);
 }
 
-.nao:hover {
-  background-color: #ff6961;
-  color: #333;
-}
-
-.sumir-lentamente {
-  -webkit-animation: sumir-lentamente 0.6s ease-out forwards;
-  animation: sumir-lentamente 0.6s ease-out forwards;
-}
-
-@-webkit-keyframes sumir-lentamente {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.aparecer-lentamente {
-  -webkit-animation: aparecer-lentamente 0.6s ease-out forwards;
-  animation: aparecer-lentamente 0.6s ease-out forwards;
-}
-
-@-webkit-keyframes aparecer-lentamente {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.subir-lentamente {
-  -webkit-animation: subir-lentamente 0.5s ease-in-out forwards;
-  animation: subir-lentamente 0.5s ease-in-out forwards;
-}
-
-@-webkit-keyframes subir-lentamente {
-  0% {
-    transform: translateY(-50%) translateX(-50%);
-  }
-  100% {
-    transform: translateY(-130%) translateX(-50%);
-  }
-}
-
-.borala {
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.beleza {
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.pontuacao {
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 15%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-}
-
-.pontuacao span {
-  color: var(--color-verse);
-}
-
-.melhor-pontuacao {
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 25%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-}
-
-.melhor-pontuacao span {
-  color: var(--color-verse);
-}
-
-.quantos-jogos {
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 37%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-}
-
-.quantos-jogos span {
-  color: var(--color-verse);
-}
-
-.finalizar-btn {
-  border: 1px solid var(--color-text-title);
-  background-color: var(--color-bg);
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 25%;
-  left: 75%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition-duration: 0.2s;
-}
-
-.finalizar-btn:hover {
-  background-color: var(--color-text-title);
-  color: var(--color-bg);
-}
-
-.fim-de-jogo {
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.jogar-novamente-btn {
-  border: 1px solid var(--color-text-title);
-  background-color: var(--color-bg);
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition-duration: 0.2s;
-}
-
-.jogar-novamente-btn:hover {
-  background-color: var(--color-text-title);
-  color: var(--color-bg);
-}
-
-.voltar-btn {
-  border: 1px solid var(--color-text-title);
-  background-color: var(--color-bg);
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition-duration: 0.2s;
-}
-
-.voltar-btn:hover {
-  background-color: var(--color-text-title);
-  color: var(--color-bg);
-}
-
-.correto-btn {
-  border: 1px solid var(--color-text-title);
-  background-color: var(--color-bg);
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 52%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition-duration: 0.2s;
-}
-
-.correto-btn:hover {
-  background-color: var(--color-text-title);
-  color: var(--color-bg);
-}
-
-.correto-btn svg {
-  fill: var(--color-text-title);
-  height: 30px;
+#game-switch svg {
   width: 30px;
-}
-
-.correto-btn:hover svg {
+  height: 30px;
   fill: var(--color-bg);
 }
-
-.errado-btn {
-  border: 1px solid var(--color-text-title);
-  background-color: var(--color-bg);
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 52%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition-duration: 0.2s;
-}
-
-.errado-btn:hover {
-  background-color: var(--color-text-title);
-  color: var(--color-bg);
-}
-
-.errado-btn svg {
-  fill: var(--color-text-title);
-  height: 30px;
-  width: 30px;
-}
-
-.errado-btn:hover svg {
-  fill: var(--color-bg);
-}
-
-.dica-btn {
-  border: 1px solid var(--color-text-title);
-  background-color: var(--color-bg);
-  font-size: 1.5rem;
-  color: var(--color-text-title);
-  text-align: center;
-  margin: 1rem 0;
-  position: absolute;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition-duration: 0.2s;
-}
-
-.dica-btn:hover {
-  background-color: var(--color-text-title);
-  color: var(--color-bg);
-}
-
-.dica-btn svg {
-  fill: var(--color-text-title);
-  height: 30px;
-  width: 30px;
-}
-
-.dica-btn:hover svg {
-  fill: var(--color-bg);
-}
-
-/* click */
-.correto-btn:active {
-  /* scale down a little taking in account the already existing transform (translate) */
-  transform: scale(0.97) translate(-50%, -50%);
-}
-
-.errado-btn:active {
-  /* scale down a little taking in account the already existing transform (translate) */
-  transform: scale(0.97) translate(-50%, -50%);
-}
-
-.dica-btn:active {
-  /* scale down a little taking in account the already existing transform (translate) */
-  transform: scale(0.97) translate(-50%, -50%);
-}
-

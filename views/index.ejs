@@ -94,16 +94,16 @@
       </svg>
     </button>
     <div class="container">
-      <div class="overlayeimagem-container">
+      <div class="image-wrapper">
         <div class="overlay">
           <h3 class="avisotext">Clique aqui para gerar um verso</h3>
         </div>
         <img
           id="imagem"
           src="/assets/<%= num %>.jpg"
-          onclick="generateVerso();"
-        />
+          onclick="generateVerso();"/>
       </div>
+
       <h1 class="titulo">DJAVANEAR</h1>
       <h2 class="verso hidden" id="versogerado"></h2>
       <h3 class="musica hidden" id="qualmusica"></h3>
@@ -183,13 +183,13 @@
       
     </script>
 	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEN7DMVKHJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEN7DMVKHJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-FEN7DMVKHJ');
-</script>
+      gtag('config', 'G-FEN7DMVKHJ');
+    </script>
   </body>
 </html>
